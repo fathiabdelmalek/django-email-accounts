@@ -4,11 +4,11 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name='django-email-accounts',
+    name='django-email-email_accounts',
     version='0.1.0',
     author='Fathi Abdelmalek',
     author_email='abdelmalek.fathi.2001@gmail.com',
-    description='A reusable Django accounts package override the default login system with email login',
+    description='A reusable Django email_accounts package override the default login system with email login',
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='https://github.com/fathiabdelmalek/django-email-accounts',
