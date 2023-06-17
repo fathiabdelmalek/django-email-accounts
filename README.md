@@ -43,6 +43,7 @@ urlpatterns = [
 4. Run migrations to create the necessary database tables:
 
 ```shell
+python manage.py makemigrations email_accounts
 python manage.py migrate
 ```
 
