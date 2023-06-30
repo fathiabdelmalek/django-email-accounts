@@ -47,7 +47,25 @@ python manage.py makemigrations email_accounts
 python manage.py migrate
 ```
 
-5. You can now use the email-accounts functionality in your Django project.
+6. You can now use the email-accounts functionality in your Django project.
+
+If you want custom authentication templates, then, in your templates folder, create a `email_accounts` subdirectory in `templates` directory and create all authentication templates on it like this.
+
+```bash
+├── templates
+│   └── email_accounts
+│       ├── login.html
+│       ├── register.html
+│       └── password
+│           ├── change
+│           ├── ├── 1.html
+│           ├── └── 2.html
+│           └── reset
+│               ├── 1.html
+│               ├── 2.html
+│               ├── 3.html
+│               └── 4.html
+```
 
 ## Contributing
 
