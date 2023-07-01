@@ -54,7 +54,7 @@ router.register('users', UserViewSet)
 urlpatterns = [
     ...
     path('api/', include(router.urls)),
-    path('api/accounts', include('email_accounts.api_urls')),
+    path('api/accounts/', include('email_accounts.api_urls')),
     ...
 ]
 ```
