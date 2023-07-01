@@ -28,14 +28,33 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'email_accounts.User'
 ```
 
-3. Update your project's `urls.py` file to include the email-accounts URLs:
-
+3. Update your project's `urls.py` file to include the email-accounts URLs: 
+ 
 ```python
 from django.urls import path, include
 
 urlpatterns = [
     ...
     path('accounts/', include('email_accounts.urls')),
+    ...
+]
+```
+
+<b>Note : </b>If you want to use the restfull api instead, then here is a propre update for `urls.py`:
+
+```python
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+
+from email_accounts.views import UserViewSet
+
+router = DefaultRouter()
+router.register('users', UserViewSet)
+
+urlpatterns = [
+    ...
+    path('api/', include(router.urls)),
+    path('api/accounts', include('email_accounts.api_urls')),
     ...
 ]
 ```
@@ -49,7 +68,7 @@ python manage.py migrate
 
 6. You can now use the email-accounts functionality in your Django project.
 
-If you want custom authentication templates, then, in your templates folder, create a `email_accounts` subdirectory in `templates` directory and create all authentication templates on it like this.
+<b>Note : </b> If you want custom authentication templates, then, in your templates folder, create a `email_accounts` subdirectory in `templates` directory and create all authentication templates on it like this.
 
 ```bash
 ├── templates
