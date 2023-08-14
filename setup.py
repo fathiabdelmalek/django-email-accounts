@@ -10,7 +10,7 @@ extras_require = {
 
 setup(
     name='django-email-accounts',
-    version='0.3.1',
+    version='0.4.0',
     author='Fathi Abdelmalek',
     author_email='abdelmalek.fathi.2001@gmail.com',
     description='A Django app for user management with email-based authentication.',
