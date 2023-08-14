@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static '/css/style.css' %}" />
+    <title>Reset Password</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Reset Password</h1>
+      <form>
+        <input class="input-field" type="email" placeholder="Email" required />
+        <button class="submit-button" type="submit">Submit</button>
+      </form>
+      <div class="links">
+        <a href="{% url 'login' %}'">Return to Login</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static '/css/style.css' %}" />
+    <title>Register</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Register</h1>
+      <form>
+        <input class="input-field" type="email" placeholder="Email" required />
+        <input
+          class="input-field"
+          type="text"
+          placeholder="Username"
+          required
+        />
+        <input
+          class="input-field"
+          type="password"
+          placeholder="Password"
+          required
+        />
+        <input
+          class="input-field"
+          type="password"
+          placeholder="Confirm Password"
+          required
+        />
+        <button class="submit-button" type="submit">Submit</button>
+      </form>
+      <div class="links">
+        <a href="{% url 'login' %}">Already have an account?</a>
+      </div>
+    </div>
+  </body>
+</html>
