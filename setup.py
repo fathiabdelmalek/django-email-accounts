@@ -10,7 +10,7 @@ extras_require = {
 
 setup(
     name='django-email-accounts',
-    version='0.4.0',
+    version='0.4.1',
     author='Fathi Abdelmalek',
     author_email='abdelmalek.fathi.2001@gmail.com',
     description='A Django app for user management with email-based authentication.',
@@ -18,6 +18,9 @@ setup(
     long_description_content_type="text/markdown",
     url='https://github.com/fathiabdelmalek/django-email-accounts',
     packages=find_packages(),
+    package_data={
+        'email_accounts': ['templates/**/*', 'static/**/*'],
+    },
     classifiers=[
         "Development Status :: 1 - Planning",
         "Framework :: Django",
