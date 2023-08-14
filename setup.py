@@ -10,7 +10,7 @@ extras_require = {
 
 setup(
     name='django-email-accounts',
-    version='0.4.1',
+    version='0.4.2',
     author='Fathi Abdelmalek',
     author_email='abdelmalek.fathi.2001@gmail.com',
     description='A Django app for user management with email-based authentication.',
@@ -22,7 +22,7 @@ setup(
         'email_accounts': ['templates/**/*', 'static/**/*'],
     },
     classifiers=[
-        "Development Status :: 1 - Planning",
+        "Development Status :: 3 - Alpha",
         "Framework :: Django",
         "Framework :: Django :: 3.2",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
