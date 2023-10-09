@@ -1,38 +1,41 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 extras_require = {
-    "rest_framework": ["djangorestframework>=3.12"],
-    "filters": ["django-filter>=2.4"],
+    "rest_framework": ["djangorestframework"],
+    "filters": ["django-filter"],
 }
 
 setup(
-    name='django-email-accounts',
-    version='0.4.2',
-    author='Fathi Abdelmalek',
-    author_email='abdelmalek.fathi.2001@gmail.com',
-    description='A Django app for user management with email-based authentication.',
-    long_description=long_description,
+    name="django-email-accounts",
+    version="0.4.3",
+    author="Fathi Abdelmalek",
+    author_email="abdelmalek.fathi.2001@gmail.com",
+    description="A Django app for user management with email-based authentication.",
+    license = "OSI Approved :: GNU General Public License v3 (GPLv3)",
+long_description=long_description,
     long_description_content_type="text/markdown",
-    url='https://github.com/fathiabdelmalek/django-email-accounts',
-    packages=find_packages(),
+    url="https://github.com/fathiabdelmalek/django-email-accounts",
+    packages=['email_accounts'],
     package_data={
-        'email_accounts': ['templates/**/*', 'static/**/*'],
+        "email_accounts": ["templates/**/*", "static/**/*"],
     },
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Beta",
         "Framework :: Django",
-        "Framework :: Django :: 3.2",
+        "Intended Audience :: Developers",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: OS Independent",
+        "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.7",
+        "Topic :: Internet",
+        "Topic :: Software Development",
     ],
-    python_requires=">=3.7",
+    python_requires=">=3.6",
     install_requires=[
-        'Django>=3.2.0',
+        "Django",
     ],
     extras_require=extras_require,
 )

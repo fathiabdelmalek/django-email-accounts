@@ -10,14 +10,10 @@
   <body>
     <div class="auth-container">
       <h1>Login</h1>
-      <form>
-        <input class="input-field" type="email" placeholder="Email" required />
-        <input
-          class="input-field"
-          type="password"
-          placeholder="Password"
-          required
-        />
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input name="username" class="input-field" type="email" placeholder="Email" autocomplete="username" required autofocus />
+        <input name="password" class="input-field" type="password" placeholder="Password" required />
         <button class="submit-button" type="submit">Submit</button>
       </form>
       <div class="links">

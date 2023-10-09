@@ -69,9 +69,15 @@ body {
   color: #0056b3;
 }
 
+.error {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
-  .container {
+  .auth-container {
     width: 90%;
     padding: 20px;
   }
@@ -86,7 +92,7 @@ body {
 }
 
 @media (max-width: 480px) {
-  .container {
+  .auth-container {
     width: 100%;
   }
 

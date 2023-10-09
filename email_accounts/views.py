@@ -1,14 +1,14 @@
-from django.shortcuts import redirect
 from django.contrib.auth import login, logout
-from django.urls import reverse
-from django.utils.decorators import method_decorator
 from django.views.generic import CreateView
 from django.views.decorators.csrf import csrf_protect, ensure_csrf_cookie
+from django.shortcuts import redirect
+from django.urls import reverse
+from django.utils.decorators import method_decorator
 
-from rest_framework.response import Response
-from rest_framework.permissions import AllowAny
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
 from rest_framework.status import (
     HTTP_200_OK,
     HTTP_201_CREATED,
@@ -29,9 +29,8 @@ class RegisterView(CreateView):
     form_class = UserCreationForm
 
     def form_valid(self, form):
-        user = form.save()
-        login(self.request, user)
-        return redirect(reverse('home'))
+        login(self.request, form.save())
+        return redirect(self.request.GET.get('next', reverse(self.request.META.get('HTTP_REFERER') if self.request.META.get('HTTP_REFERER') else 'home')))
 
 
 @method_decorator(ensure_csrf_cookie, name='dispatch')
