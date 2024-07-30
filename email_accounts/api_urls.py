@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import GetCSRFToken, IsAuthenticated, LoginView, LogoutView, UserViewSet
+from .views import GetCSRFToken, IsAuthenticated, LoginView, LogoutView
 
 urlpatterns = [
     path('csrf-cookie/', GetCSRFToken.as_view()),

@@ -9,6 +9,5 @@ class UserFilter(django_filters.FilterSet):
             'username': ['iexact', 'icontains'],
             'email': ['iexact', 'icontains'],
             'is_staff': ['exact'],
-            'is_admin': ['exact'],
             'is_superuser': ['exact'],
         }

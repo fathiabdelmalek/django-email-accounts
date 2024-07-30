@@ -68,7 +68,7 @@ class LoginView(APIView):
                 user = user[0]
                 if user.check_password(password):
                     login(request, user)
-                    return Response({'success': 'login successfully'}, status=HTTP_201_CREATED)
+                    return Response({'success': 'login successfully'}, status=HTTP_200_OK)
                 return Response({'password_error': "password isn't correct"}, status=HTTP_401_UNAUTHORIZED)
             return Response({'email_error': "email doesn't exist"}, status=HTTP_401_UNAUTHORIZED)
         except Exception as e:
@@ -80,7 +80,7 @@ class LogoutView(APIView):
     def post(self, request, format=None):
         try:
             logout(request)
-            return Response({'success', 'logout successfully'}, status=HTTP_204_NO_CONTENT)
+            return Response({}, status=HTTP_204_NO_CONTENT)
         except:
             return Response({'error': 'something went wrong when loging out'}, status=HTTP_500_INTERNAL_SERVER_ERROR)
 
@@ -119,6 +119,3 @@ class UserViewSet(ModelViewSet):
             return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
         except Exception as e:
             return Response({'error': str(e)}, status=HTTP_500_INTERNAL_SERVER_ERROR)
-
-    def perform_create(self, serializer):
-        serializer.save()

@@ -1,26 +1,28 @@
 from django.forms import EmailField, CharField, EmailInput, TextInput, PasswordInput
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm as BaseUserCreationForm
+from django.utils.translation import gettext_lazy as _
+
 from .models import User
 
 
-class UserCreationForm(UserCreationForm):
+class UserCreationForm(BaseUserCreationForm):
     email = EmailField(
-        label="Email Address",
-        widget=EmailInput(attrs={'class': 'input-field', 'placeholder': 'Enter your email', 'required': True}),
+        label=_("Email Address"),
+        widget=EmailInput(attrs={'class': 'input-field', 'placeholder': _('Enter your email'), 'required': True}),
     )
     username = CharField(
-        label="Username",
-        widget=TextInput(attrs={'class': 'input-field', 'placeholder': 'Choose a username', 'required': True}),
+        label=_("Username"),
+        widget=TextInput(attrs={'class': 'input-field', 'placeholder': _('Choose a username'), 'required': True}),
     )
-    password1 = CharField(
-        label="Password",
-        widget=PasswordInput(attrs={'class': 'input-field', 'placeholder': 'Enter your password', 'required': True}),
+    password = CharField(
+        label=_("Password"),
+        widget=PasswordInput(attrs={'class': 'input-field', 'placeholder': _('Enter your password'), 'required': True}),
     )
-    password2 = CharField(
-        label="Confirm Password",
-        widget=PasswordInput(attrs={'class': 'input-field', 'placeholder': 'Confirm your password', 'required': True}),
+    re_password = CharField(
+        label=_("Confirm Password"),
+        widget=PasswordInput(attrs={'class': 'input-field', 'placeholder': _('Confirm your password'), 'required': True}),
     )
 
     class Meta:
         model = User
-        fields = ['email', 'username', 'password1', 'password2']
+        fields = ['email', 'username', 'password', 're_password']

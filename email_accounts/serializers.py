@@ -3,6 +3,9 @@ from .models import User
 
 
 class UserSerializer(ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email', 'date_joined', 'last_login', 'is_active', 'is_staff', 'is_superuser')
 
     def create(self, validated_data):
         password = validated_data.pop('password', None)
@@ -11,7 +14,3 @@ class UserSerializer(ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
-
-    class Meta:
-        model = User
-        fields = ('id', 'username', 'email', 'date_joined', 'last_login', 'is_active', 'is_staff', 'is_admin', 'is_superuser', 'url')

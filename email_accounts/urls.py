@@ -13,7 +13,9 @@ from .views import RegisterView
 from .utils import anonymous_required
 
 urlpatterns = [
-    path('register/', anonymous_required(RegisterView.as_view(template_name='email_accounts/register.html')), name='register'),
+    path('register/',
+         anonymous_required(RegisterView.as_view(template_name='email_accounts/register.html')),
+         name='register'),
     path('login/',
          anonymous_required(LoginView.as_view(template_name='email_accounts/login.html')),
          name='login'),
